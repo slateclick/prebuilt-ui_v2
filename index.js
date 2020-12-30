@@ -64,7 +64,7 @@ async function createRoom() {
   const options = {
     properties: {
       exp: exp,
-      enable_recording: rtp-tracks,
+      enable_recording: 'rtp-tracks*',
       enable_chat: true,
     },
   };
