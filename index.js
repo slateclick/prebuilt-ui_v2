@@ -62,7 +62,7 @@ async function createRoom() {
   // see other available options at https://docs.daily.co/reference#create-room
   const exp = Math.round(Date.now() / 1000) + 60 * 30;
   const options = {
-    privacy: "private",
+    privacy: "public",
     properties: {
       exp: exp,
       enable_recording: 'rtp-tracks',
