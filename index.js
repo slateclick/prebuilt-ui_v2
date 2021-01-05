@@ -208,7 +208,7 @@ function resetRecordingButton() {
 
   setTimeout(function(){
     onRecordingStop();
-  }, 10000);
+  }, 20000);
   
 }
 
