@@ -9,6 +9,9 @@
 // Creates the callframe
 // Defines event listeners on Daily events
 // Assigns an event listener to the input field to change the join button color
+
+currentRecordingID = "";
+
 async function setup() {
   callFrame = await window.DailyIframe.createFrame(
     document.getElementById('callframe'),
@@ -125,6 +128,25 @@ function showEvent(e) {
 
 function onRecordingStart(e) {
   console.log(e);
+  currentRecordingID = e.recordingId;
+}
+
+async function onRecordingStop() {
+
+  try{
+    let response = await fetch('https://api.daily.co/v1/recordings/' + currentRecordingID ,{
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Authorization': 'Bearer 4180adc0f2f323fda35e5fcd476b5b7c95128b6507059abfd74a39f26ad336a8'
+      },
+    });
+
+    console.log(response)
+  }
+  catch(e) {
+
+  }
 }
 
 // 'joined-meeting'
@@ -182,6 +204,7 @@ function resetRecordingButton() {
   const recordingButton = document.getElementById('recording-button');
   recordingButton.setAttribute('onclick', 'callFrame.startRecording()');
   recordingButton.innerHTML = 'Start recording';
+  onRecordingStop();
 }
 
 /* Call panel button functions */
