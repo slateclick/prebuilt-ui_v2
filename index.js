@@ -30,7 +30,7 @@ async function setup() {
     .on('camera-error', showEvent)
     .on('joining-meeting', showEvent)
     .on('joined-meeting', showCallDisplay)
-    .on('recording-started', showEvent)
+    .on('recording-started', onRecordingStart)
     .on('recording-stopped', resetRecordingButton)
     .on('recording-stats', showEvent)
     .on('recording-error', showEvent)
@@ -121,6 +121,10 @@ async function joinCall() {
 // Logs the Daily event to the console
 function showEvent(e) {
   console.log('callFrame event', e);
+}
+
+function onRecordingStart(e) {
+  console.log(e);
 }
 
 // 'joined-meeting'
