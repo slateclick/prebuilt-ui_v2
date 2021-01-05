@@ -142,8 +142,8 @@ async function onRecordingStop(e) {
         'Authorization': 'Bearer 4180adc0f2f323fda35e5fcd476b5b7c95128b6507059abfd74a39f26ad336a8'
       },
     });
-
-    console.log(response)
+    record = await response.json();
+    console.log(record)
   }
   catch(e) {
 
@@ -208,7 +208,7 @@ function resetRecordingButton() {
 
   setTimeout(function(){
     onRecordingStop();
-  }, 2000);
+  }, 10000);
   
 }
 
