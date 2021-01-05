@@ -143,7 +143,11 @@ async function onRecordingStop(e) {
       },
     });
     record = await response.json();
-    console.log(record)
+    console.log(record);
+
+    recordingDataContainer = document.getElementById('recording-data');
+    recordingDataContainer.innerHTML = JSON.stringify(record);
+
   }
   catch(e) {
 
