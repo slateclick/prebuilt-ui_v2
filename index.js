@@ -205,7 +205,11 @@ function resetRecordingButton() {
   const recordingButton = document.getElementById('recording-button');
   recordingButton.setAttribute('onclick', 'callFrame.startRecording()');
   recordingButton.innerHTML = 'Start recording';
-  // onRecordingStop();
+
+  setTimeout(function(){
+    onRecordingStop();
+  }, 2000);
+  
 }
 
 /* Call panel button functions */
