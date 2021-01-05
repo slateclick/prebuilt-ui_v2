@@ -183,3 +183,8 @@
     margin-top: 16px;
   }
 }
+
+#recording-data{
+  width: 300px;
+  word-break: break-word;
+}
