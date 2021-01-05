@@ -36,6 +36,7 @@ async function setup() {
     .on('recording-started', onRecordingStart)
     .on('recording-stopped', resetRecordingButton)
     .on('recording-stats', showEvent)
+    .on('recording-upload-completed', onRecordingStop)
     .on('recording-error', showEvent)
     .on('app-message', showEvent)
     .on('input-event', showEvent)
@@ -131,7 +132,7 @@ function onRecordingStart(e) {
   currentRecordingID = e.recordingId;
 }
 
-async function onRecordingStop() {
+async function onRecordingStop(e) {
 
   try{
     let response = await fetch('https://api.daily.co/v1/recordings/' + currentRecordingID ,{
@@ -204,7 +205,7 @@ function resetRecordingButton() {
   const recordingButton = document.getElementById('recording-button');
   recordingButton.setAttribute('onclick', 'callFrame.startRecording()');
   recordingButton.innerHTML = 'Start recording';
-  onRecordingStop();
+  // onRecordingStop();
 }
 
 /* Call panel button functions */
